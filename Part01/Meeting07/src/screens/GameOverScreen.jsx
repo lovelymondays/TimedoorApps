@@ -1,48 +1,46 @@
-import React from "react";
+/* eslint-disable react-native/no-inline-styles */
+import React from 'react';
 import {
   View,
   Text,
   ImageBackground,
   Image,
   TouchableOpacity,
-} from "react-native";
-const GameOverScreen = (props) => {
-  const { navigation } = props;
-
+} from 'react-native';
+const GameOverScreen = props => {
+  const {navigation} = props;
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <ImageBackground
-        source={{ uri: "https://wallpaperaccess.com/full/3147153.jpg" }}
-        imageStyle={{ opacity: 0.5 }}
+        source={{uri: 'https://wallpaperaccess.com/full/3147153.jpg'}}
+        imageStyle={{opacity: 0.5}}
         style={{
           flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <Image
           source={{
-            uri: "https://images.pexels.com/photos/4835419/pexels-photo-4835419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            uri: 'https://images.vexels.com/media/users/3/231980/isolated/lists/954a927792f782ae93e36074c29344d7-game-over-retro-lettering.png',
           }}
-          style={{ width: "50%", height: 180 }}
+          style={{width: '50%', height: 180}}
+          resizeMode={'contain'}
         />
         <View
           style={{
             borderWidth: 1,
-            backgroundColor: "lime",
+            backgroundColor: 'lime',
             padding: 8,
             borderRadius: 10,
             marginTop: 32,
-          }}
-        >
-          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          }}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Text
               style={{
-                textTransform: "uppercase",
+                textTransform: 'uppercase',
                 fontSize: 24,
-                fontWeight: "bold",
-              }}
-            >
+                fontWeight: 'bold',
+              }}>
               Play Again
             </Text>
           </TouchableOpacity>

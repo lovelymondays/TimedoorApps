@@ -7,19 +7,24 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-const WinScreen = props => {
+
+const GameOverScreen = props => {
   const {navigation} = props;
   return (
     <View style={{flex: 1}}>
       <ImageBackground
-        source={{uri: 'https://wallpaperaccess.com/full/154959.jpg'}}
-        style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-        imageStyle={{opacity: 0.5}}>
+        source={{uri: 'https://wallpaperaccess.com/full/3147153.jpg'}}
+        imageStyle={{opacity: 0.5}}
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <Image
           source={{
-            uri: 'https://images.vexels.com/media/users/3/250027/isolated/preview/67c3ec9c225b9ef3a2ff256dd2480567-congratulations-lettering-label.png',
+            uri: 'https://images.vexels.com/media/users/3/231980/isolated/lists/954a927792f782ae93e36074c29344d7-game-over-retro-lettering.png',
           }}
-          style={{width: '100%', height: 200}}
+          style={{width: '50%', height: 180}}
           resizeMode={'contain'}
         />
         <View
@@ -27,7 +32,8 @@ const WinScreen = props => {
             borderWidth: 1,
             backgroundColor: 'lime',
             padding: 8,
-            borderRadius: 20,
+            borderRadius: 10,
+            marginTop: 32,
           }}>
           <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Text
@@ -44,4 +50,5 @@ const WinScreen = props => {
     </View>
   );
 };
-export default WinScreen;
+
+export default GameOverScreen;

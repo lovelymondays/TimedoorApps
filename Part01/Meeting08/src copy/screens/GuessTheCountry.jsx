@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -8,13 +8,13 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-} from "react-native";
-import { countryList, objectImageList, objectNameList } from "../../data/Data";
+} from 'react-native';
+import {countryList, objectImageList, objectNameList} from '../../data/Data';
 
-const GuessTheCountryScreen = (props) => {
-  const { navigation } = props;
-  const [result, setResult] = useState("");
-  const [answer, setAnswer] = useState("");
+const GuessTheCountryScreen = props => {
+  const {navigation} = props;
+  const [result, setResult] = useState('');
+  const [answer, setAnswer] = useState('');
   const [score, setScore] = useState(0);
   const [life, setLife] = useState(3);
 
@@ -25,7 +25,7 @@ const GuessTheCountryScreen = (props) => {
   };
 
   useEffect(() => {
-    const homePage = navigation.addListener("focus", () => {
+    const homePage = navigation.addListener('focus', () => {
       randomIndex();
       setScore(0);
       setLife(3);
@@ -35,45 +35,43 @@ const GuessTheCountryScreen = (props) => {
 
   const checkAnswer = () => {
     if (answer.toLowerCase() === countryList[index]) {
-      setResult("true");
+      setResult('true');
       setScore(score + 10);
       setLife(life + 1);
     } else {
       setLife(life - 1);
-      setResult("false");
+      setResult('false');
     }
     setTimeout(() => {
-      setResult("");
+      setResult('');
       randomIndex();
     }, 1500);
   };
 
   useEffect(() => {
     if (score === 20) {
-      navigation.navigate("Win");
+      navigation.navigate('Win');
     }
     if (life === 0) {
-      navigation.navigate("GameOver");
+      navigation.navigate('GameOver');
     }
   }, [navigation, score, life]);
 
   return (
-    <ScrollView contentContainerStyle={{ flex: 1 }}>
+    <ScrollView contentContainerStyle={{flex: 1}}>
       <View
         style={{
           flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
         <Text
           style={{
-            textDecorationLine: "underline",
+            textDecorationLine: 'underline',
             fontSize: 28,
-            fontFamily: "serif",
+            fontFamily: 'serif',
             marginBottom: 16,
-          }}
-        >
+          }}>
           Guess The Country
         </Text>
         <Image
@@ -82,88 +80,81 @@ const GuessTheCountryScreen = (props) => {
             height: 250,
             borderRadius: 10,
           }}
-          source={{ uri: objectImageList[index] }}
+          source={{uri: objectImageList[index]}}
         />
         <View
           style={{
             margin: 8,
-            backgroundColor: "lavender",
+            backgroundColor: 'lavender',
             padding: 4,
             borderWidth: 1,
-          }}
-        >
-          <Text style={{ fontSize: 18 }}>{objectNameList[index]} </Text>
+          }}>
+          <Text style={{fontSize: 18}}>{objectNameList[index]} </Text>
         </View>
         <View
           style={{
-            flexDirection: "row",
+            flexDirection: 'row',
             margin: 8,
-          }}
-        >
+          }}>
           <TextInput
             style={{
               borderWidth: 1,
-              width: "50%",
+              width: '50%',
             }}
             placeholder="Write your answer"
             keyboardType="default"
-            onChangeText={(text) => setAnswer(text)}
+            onChangeText={text => setAnswer(text)}
           />
           <TouchableOpacity
             style={{
               borderWidth: 1,
-              alignItems: "center",
-              justifyContent: "center",
+              alignItems: 'center',
+              justifyContent: 'center',
               borderRadius: 10,
               padding: 8,
               marginLeft: 8,
               marginBottom: 8,
               marginTop: 8,
-              backgroundColor: "skyblue",
+              backgroundColor: 'skyblue',
             }}
-            onPress={() => checkAnswer()}
-          >
-            <Text style={{ fontSize: 18 }}>Submit</Text>
+            onPress={() => checkAnswer()}>
+            <Text style={{fontSize: 18}}>Submit</Text>
           </TouchableOpacity>
         </View>
         <Text>{result}</Text>
         <View
           style={{
-            justifyContent: "center",
-            alignItems: "center",
+            justifyContent: 'center',
+            alignItems: 'center',
             padding: 16,
-            flexDirection: "row",
-          }}
-        >
+            flexDirection: 'row',
+          }}>
           <View>
             <View
               style={{
-                justifyContent: "center",
-                alignItems: "center",
+                justifyContent: 'center',
+                alignItems: 'center',
                 padding: 16,
-                flexDirection: "row",
-              }}
-            >
+                flexDirection: 'row',
+              }}>
               <View
                 style={{
                   borderWidth: 1,
                   padding: 8,
-                  alignItems: "center",
-                  backgroundColor: "mistyrose",
+                  alignItems: 'center',
+                  backgroundColor: 'mistyrose',
                   borderRadius: 20,
-                }}
-              >
+                }}>
                 <Text>Score : {score}</Text>
               </View>
               <View
                 style={{
                   borderWidth: 1,
                   padding: 8,
-                  alignItems: "center",
-                  backgroundColor: "mistyrose",
+                  alignItems: 'center',
+                  backgroundColor: 'mistyrose',
                   borderRadius: 20,
-                }}
-              >
+                }}>
                 <Text>Life : {life}</Text>
               </View>
             </View>

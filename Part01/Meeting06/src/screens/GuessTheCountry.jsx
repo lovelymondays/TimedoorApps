@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
-import { countryList, objectImageList, objectNameList } from "../data/Data";
+import { countryList, objectImageList, objectNameList } from "../../data/Data";
 
 const GuessTheCountryScreen = () => {
   const [result, setResult] = useState("");
@@ -54,7 +54,7 @@ const GuessTheCountryScreen = () => {
           height: 250,
           borderRadius: 10,
         }}
-        source={{ uri: objectImageList[0] }}
+        source={{ uri: objectImageList[index] }}
       />
       <View
         style={{
@@ -64,7 +64,7 @@ const GuessTheCountryScreen = () => {
           borderWidth: 1,
         }}
       >
-        <Text style={{ fontSize: 18 }}>{objectNameList[0]} </Text>
+        <Text style={{ fontSize: 18 }}>{objectNameList[index]} </Text>
       </View>
       <View
         style={{
